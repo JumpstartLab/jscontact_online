@@ -1,0 +1,12 @@
+<%= form_for @phone_number do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :person_id %><br />
+    <%= f.text_field :person_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

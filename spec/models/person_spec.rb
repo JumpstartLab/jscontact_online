@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Person do
-  
   let(:person) do
     Person.new(:first_name => "Daffy",
                :last_name => "Duck")
@@ -19,5 +18,9 @@ describe Person do
   it "should not be valid without a last name" do
     person.last_name = nil
     person.should_not be_valid
+  end
+  
+  it "should have an array of phone numbers" do
+    person.phone_numbers.should be_instance_of(Array)
   end
 end
