@@ -9,5 +9,6 @@ group :development, :test do
   gem 'powder'
   gem 'heroku'
   gem 'nifty-generators'
+  gem "mocha"
+  gem 'capybara'
 end
-gem "mocha", :group => :test
