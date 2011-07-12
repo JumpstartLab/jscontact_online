@@ -8,4 +8,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'powder'
   gem 'heroku'
+  gem 'nifty-generators'
 end
+gem "mocha", :group => :test

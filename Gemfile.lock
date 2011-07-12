@@ -51,6 +51,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.12)
+    nifty-generators (0.4.6)
     polyglot (0.3.1)
     powder (0.1.5)
       thor (>= 0.11.5)
@@ -103,6 +105,8 @@ PLATFORMS
 DEPENDENCIES
   heroku
   jquery-rails
+  mocha
+  nifty-generators
   powder
   rails (= 3.0.9)
   rspec-rails
