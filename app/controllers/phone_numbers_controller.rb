@@ -8,7 +8,8 @@ class PhoneNumbersController < ApplicationController
   end
 
   def new
-    @phone_number = PhoneNumber.new
+    @person = Person.find params[:person_id]    
+    @phone_number = @person.phone_numbers.new
   end
 
   def create

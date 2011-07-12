@@ -10,6 +10,12 @@
 </p>
 
 <p>
+  <strong>Phone Numbers:</strong>
+  <%= print_numbers @person.phone_numbers %>
+  <%= link_to "Add a Phone Number", new_phone_number_path(:person_id => @person) %>
+</p>
+
+<p>
   <%= link_to "Edit", edit_person_path(@person) %> |
   <%= link_to "Destroy", @person, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", people_path %>
