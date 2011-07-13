@@ -18,7 +18,19 @@ describe "the views for people", :type => :request do
     
     it "should have edit links for each phone number" do
       @person.phone_numbers.each do |phone_number|    
-        page.should have_link("Edit", :href => edit_phone_number_path(phone_number))
+        page.should have_link(dom_id(phone_number, :edit), :href => edit_phone_number_path(phone_number))
+      end
+    end
+    
+    context "when I click on the edit link for a number" do
+      before(:each) do
+        @number = @person.phone_numbers.first
+        page.click_link(dom_id(@number, :edit))
+      end
+      
+      it "should show the edit form" do
+        save_and_open_page
+        current_path.should == edit_phone_number_path(@number)
       end
     end
   end

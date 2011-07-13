@@ -11,7 +11,7 @@
 
 <p>
   <strong>Phone Numbers:</strong>
-  <%= print_numbers @person.phone_numbers %>
+  <%= render 'phone_numbers' %>
   <%= link_to "Add a Phone Number", new_phone_number_path(:person_id => @person) %>
 </p>
 
