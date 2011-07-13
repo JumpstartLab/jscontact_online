@@ -2,8 +2,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe PhoneNumber do
   let(:phone_number) do
-    person = Person.create(:first_name => "Daffy", :last_name => "Duck")
-    person.phone_numbers.new(:number => "2223334444")
+    person = Fabricate(:person)
+    person.phone_numbers.first
   end
   
   it "should be valid" do

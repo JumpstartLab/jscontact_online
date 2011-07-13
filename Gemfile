@@ -15,4 +15,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem 'growl'
+  gem 'fabrication'
+  gem 'ffaker'
 end

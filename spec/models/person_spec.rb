@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe Person do
-  let(:person) do
-    Person.new(:first_name => "Daffy",
-               :last_name => "Duck")
-  end
-  
+  let(:person) { Fabricate(:person) }
+
   it "should be valid" do
     person.should be_valid
   end

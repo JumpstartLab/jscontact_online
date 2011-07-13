@@ -16,4 +16,9 @@ describe "the views for phone_numbers", :type => :request do
       current_path.should == person_path(@person)
     end
   end
+  
+  # Challenge:
+  # When on the new form:
+  # to check that creating a phone number brings you back to the person
+  # and that the phone number is listed
 end
