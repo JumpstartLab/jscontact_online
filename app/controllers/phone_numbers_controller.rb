@@ -29,7 +29,7 @@ class PhoneNumbersController < ApplicationController
   def update
     @phone_number = PhoneNumber.find(params[:id])
     if @phone_number.update_attributes(params[:phone_number])
-      redirect_to @phone_number, :notice  => "Successfully updated phone number."
+      redirect_to @phone_number.person, :notice  => "Successfully updated phone number."
     else
       render :action => 'edit'
     end
