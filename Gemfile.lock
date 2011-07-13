@@ -44,6 +44,11 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     ffi (1.0.9)
+    growl (1.0.3)
+    guard (0.5.0)
+      thor (~> 0.14.6)
+    guard-rspec (0.4.0)
+      guard (>= 0.4.0)
     heroku (2.3.6)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -88,6 +93,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.4)
     rake (0.9.2)
+    rb-fsevent (0.4.1)
     rdoc (3.8)
     rest-client (1.6.3)
       mime-types (>= 1.16)
@@ -124,11 +130,15 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  growl
+  guard
+  guard-rspec
   heroku
   jquery-rails
   mocha
   nifty-generators
   powder
   rails (= 3.0.9)
+  rb-fsevent
   rspec-rails
   sqlite3

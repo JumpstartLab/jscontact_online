@@ -35,22 +35,43 @@ describe "the views for people", :type => :request do
     
     it "should have edit links for each phone number" do
       @person.phone_numbers.each do |phone_number|    
-        page.should have_link(dom_id(phone_number, :edit), :href => edit_phone_number_path(phone_number))
+        page.should have_link(dom_id(phone_number, :edit))
       end
     end
     
     it "should have a delete link for each phone number" do
-      pending
-      # Iterate through the phone numbers
-        # Look for a link with the dom_id(phone_number, :destroy)
+      @person.phone_numbers.each do |phone_number|    
+        page.should have_link(dom_id(phone_number, :delete))
+      end
     end
     
     context "when I click the delete link for a number" do
+      before(:each) do
+        @phone_number = @person.phone_numbers.first
+        click_link(dom_id(@phone_number, :delete))
+      end
       
-      it "should display the person show page"
+      it "should display the person show page" do
+        current_path.should == person_path(@person)
+      end
       
-      it "should not display the deleted number"
+      it "should not display the deleted number" do
+        page.should_not have_content(@phone_number.number)
+      end
     end
+    
+    context "when I click the Add a Phone Number link" do
+      before(:each) do
+        click_link("new_phone_number")
+      end
+      
+      it "should display the new phone number page" do
+        current_path.should == new_phone_number_path
+      end
+    end
+    # then try implementing the corresponding examples in phone_numbers_views_spec
+    # to check that creating a phone number brings you back to the person
+    # and that the phone number is listed
     
     context "when I click on the edit link for a number" do
       before(:each) do

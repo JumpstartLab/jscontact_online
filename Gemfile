@@ -11,4 +11,8 @@ group :development, :test do
   gem 'nifty-generators'
   gem "mocha"
   gem 'capybara'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'growl'
 end
