@@ -1,4 +1,6 @@
 Jscontact::Application.routes.draw do
+  resources :companies
+
   resources :phone_numbers
 
   resources :people
