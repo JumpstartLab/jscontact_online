@@ -1,12 +1,6 @@
 class PhoneNumbersController < ApplicationController
-  def index
-    @phone_numbers = PhoneNumber.all
-  end
-
-  def show
-    @phone_number = PhoneNumber.find(params[:id])
-  end
-
+  before_filter :lookup_phone_number, :except => [:new, :create]
+  
   def new
     if params[:person_id]
       @contact = Person.find params[:person_id]    
@@ -26,11 +20,9 @@ class PhoneNumbersController < ApplicationController
   end
 
   def edit
-    @phone_number = PhoneNumber.find(params[:id])
   end
 
   def update
-    @phone_number = PhoneNumber.find(params[:id])
     if @phone_number.update_attributes(params[:phone_number])
       redirect_to @phone_number.contact, :notice  => "Successfully updated phone number."
     else
@@ -39,8 +31,12 @@ class PhoneNumbersController < ApplicationController
   end
 
   def destroy
-    @phone_number = PhoneNumber.find(params[:id])
     @phone_number.destroy
     redirect_to @phone_number.contact, :notice => "Successfully destroyed phone number."
   end
+
+private  
+  def lookup_phone_number
+    @phone_number = PhoneNumber.find(params[:id])
+  end  
 end

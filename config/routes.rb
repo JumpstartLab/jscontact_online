@@ -1,7 +1,7 @@
 Jscontact::Application.routes.draw do
   resources :companies
 
-  resources :phone_numbers
+  resources :phone_numbers, :except => [:index, :show]
 
   resources :people
 
