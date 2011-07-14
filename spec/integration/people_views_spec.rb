@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "the views for people", :type => :request do
+  let(:person){ Fabricate(:person) }
+  let(:people) { [Fabricate(:person), Fabricate(:person)] }
+
   context "when listing the people" do
     before(:all) do
       people
@@ -9,8 +12,6 @@ describe "the views for people", :type => :request do
     before(:each) do
       visit people_path
     end
-    
-    let(:people) { [Fabricate(:person), Fabricate(:person)] }
   
     it "should list the phone numbers" do
       people.each do |person|
@@ -25,9 +26,14 @@ describe "the views for people", :type => :request do
     before(:each) do
       visit person_path(person)
     end
-    
-    let(:person){ Fabricate(:person) }
+        
     let(:phone_number) { person.phone_numbers.first }
+    
+    context "and they have a mugshot" do
+      it "should display the image" do
+        page.should have_selector("img#mugshot")
+      end      
+    end
     
     it "should display each phone number" do
       person.phone_numbers.each do |phone_number|
@@ -79,6 +85,16 @@ describe "the views for people", :type => :request do
       it "should show the edit form" do
         current_path.should == edit_phone_number_path(phone_number)
       end
+    end
+  end
+  
+  context "when editing a person" do
+    before(:each) do
+      visit edit_person_path(person)
+    end
+
+    it "should have a file field for mugshot" do
+      page.should have_field("person_mugshot")
     end
   end
 end

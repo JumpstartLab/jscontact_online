@@ -1,0 +1,2 @@
+Fabricator(:mugshot) do
+end

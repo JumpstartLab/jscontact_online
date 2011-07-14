@@ -20,4 +20,9 @@ describe Person do
   it "should have an array of phone numbers" do
     person.phone_numbers.should be_instance_of(Array)
   end
+  
+  it "should have a mugshot" do
+    person.should respond_to(:mugshot)
+  end
+  
 end
