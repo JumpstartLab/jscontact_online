@@ -11,4 +11,8 @@ describe Company do
     company.name = nil
     company.should_not be_valid
   end
+  
+  it "should have an array of phone numbers" do
+    company.phone_numbers.should be_instance_of(Array)
+  end
 end
