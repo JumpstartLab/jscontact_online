@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'spork', '~> 0.9.0.rc'
   gem 'rspec-rails'
   gem 'powder'
   gem 'heroku'
