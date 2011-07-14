@@ -5,6 +5,9 @@
   <%= @company.name %>
 </p>
 
+<%= render :partial => 'people/phone_numbers', :object => @company.phone_numbers %>
+
+<%= link_to "Add a Phone Number", new_phone_number_path(:company_id => @company), :id => "new_phone_number" %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
