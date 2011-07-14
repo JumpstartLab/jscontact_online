@@ -1,0 +1,24 @@
+- title "Person"
+
+%p
+  %strong First Name:
+  = @person.first_name 
+
+%p
+  %strong Last Name:
+  = @person.last_name 
+
+
+%p
+  %strong Phone Numbers:
+  = render :partial => 'phone_numbers', :object => @person.phone_numbers 
+  = link_to "Add a Phone Number", new_phone_number_path(:person_id => @person), :id => "new_phone_number" 
+
+
+%p
+  = link_to "Edit", edit_person_path(@person)
+  |
+  = link_to "Destroy", @person, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", people_path 
+

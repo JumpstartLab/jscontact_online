@@ -1,9 +1,0 @@
-<ul>
-  <% phone_numbers.each do |phone_number| %>
-    <li>
-      <%= phone_number.number%>
-      <%= link_to "(change)", edit_phone_number_path(phone_number), :id => dom_id(phone_number, :edit) %>
-      <%= link_to "(delete)", phone_number, :method => :delete, :id => dom_id(phone_number, :delete) %>
-    </li>
-  <% end %>
-</ul>
