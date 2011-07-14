@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  validates_presence_of :name
+  include Contact
   
-  has_many :phone_numbers, :as => :contact
+  validates_presence_of :name
 end

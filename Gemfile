@@ -4,6 +4,8 @@ gem 'rake', '0.8.7'
 gem 'rails', '3.0.9'
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'haml'
+gem 'sass'
 
 group :development, :test do
   gem 'spork', '~> 0.9.0.rc'

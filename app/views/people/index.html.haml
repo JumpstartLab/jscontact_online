@@ -1,0 +1,17 @@
+- title "People"
+
+%table
+  %tr
+    %th First Name
+    %th Last Name
+    %th Phone Numbers
+  - for person in @people
+    %tr
+      %td= person.first_name
+      %td= person.last_name
+      %td= render :partial => 'phone_numbers', :object => person.phone_numbers
+      %td= link_to "Show", person
+      %td= link_to "Edit", edit_person_path(person)
+      %td= link_to "Destroy", person, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Person", new_person_path
