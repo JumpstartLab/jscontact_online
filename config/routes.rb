@@ -8,8 +8,7 @@ Jscontact::Application.routes.draw do
   match "/auth/:provider/callback", :to => "sessions#create"
   match "/auth/failure", :to => "sessions#failure"
   match "/logout", :to => "sessions#destroy"
-  match "/login_twitter" => redirect("/auth/twitter")
-  match "/login_github" => redirect("/auth/github")
+  match "/login" => redirect("/auth/twitter")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

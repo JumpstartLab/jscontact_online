@@ -1,5 +1,5 @@
 Fabricator(:user) do
-  provider{ "sample" }
-  uid{ sequence(:uid) }
-  name{ Faker::Name.name}
+  provider!{ "sample" }
+  uid!{ sequence(:uid) }
+  name!{ Faker::Name.name}
 end

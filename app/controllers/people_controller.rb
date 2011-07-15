@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_filter :lookup_person, :except => [:new, :index, :create]
   use_tinymce(:new, :edit)
   def index
-    @people = Person.all
+    @people = current_user.people.all
   end
 
   def show    

@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "the views for people", :type => :request do
-  let(:person){ Fabricate(:person) }
-  let(:people) { [Fabricate(:person), Fabricate(:person)] }
+  let(:user){ Fabricate(:user) }
+  let(:person){ Fabricate(:person, :user_id => user.id) }
+  let(:people) { [Fabricate(:person, :user_id => user.id), 
+                  Fabricate(:person, :user_id => user.id)] }
 
   context "when listing the people" do
     before(:all) do
@@ -10,7 +12,29 @@ describe "the views for people", :type => :request do
     end
     
     before(:each) do
+      login_as(user)
+      visit login_path
       visit people_path
+    end
+  
+    it "should list people associated with this user" do
+      person = Fabricate(:person, :user_id => user.id)
+      person.save!
+      user.people.count.should > 0
+      person.user.should == user 
+      visit people_path
+      save_and_open_page
+      user.people.each do |person|
+        page.should have_content(person.last_name)
+        page.should have_content(person.first_name)
+      end
+    end
+    
+    it "should not list people associated with another user" do
+      person = Fabricate(:person)
+      visit people_path
+      page.should_not have_content(person.last_name)
+      page.should_not have_content(person.first_name)
     end
   
     it "should list the phone numbers" do
@@ -98,5 +122,12 @@ describe "the views for people", :type => :request do
     it "should have a file field for mugshot" do
       page.should have_field("person_mugshot_attributes_photo")
     end
+  end
+  
+  context "when creating a person" do
+    before(:each) do
+      visit new_person_path
+    end
+        
   end
 end

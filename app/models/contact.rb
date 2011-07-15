@@ -6,7 +6,8 @@ module Contact
     # has_many :email_addresses, :as => :contact  
     has_one :mugshot, :as => :contact
     accepts_nested_attributes_for :mugshot   
-    attr_accessible :mugshot_attributes     
+    attr_accessible :mugshot_attributes   
+    belongs_to :user  
   end
   
   module ClassMethods
