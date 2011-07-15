@@ -1,6 +1,6 @@
 - title "Person"
 
-= #image_tag @person.mugshot.asset.url
+= image_tag @person.mugshot_url, :id => "mugshot" if @person.mugshot?
 
 %p
   %strong First Name:
@@ -9,7 +9,6 @@
 %p
   %strong Last Name:
   = @person.last_name 
-
 
 %p
   %strong Phone Numbers:

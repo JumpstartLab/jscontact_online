@@ -14,5 +14,12 @@ module Contact
   end
   
   module InstanceMethods
+    def mugshot_url
+      mugshot.url
+    end
+    
+    def mugshot?
+      !mugshot.nil?
+    end
   end
 end

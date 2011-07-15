@@ -31,7 +31,9 @@ describe "the views for people", :type => :request do
     
     context "and they have a mugshot" do
       it "should display the image" do
-        page.should have_selector("img#mugshot")
+        if person.mugshot?
+          page.should have_selector("img#mugshot")
+        end
       end      
     end
     
@@ -94,7 +96,7 @@ describe "the views for people", :type => :request do
     end
 
     it "should have a file field for mugshot" do
-      page.should have_field("person_mugshot")
+      page.should have_field("person_mugshot_attributes_photo")
     end
   end
 end
