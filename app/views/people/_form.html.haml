@@ -1,4 +1,4 @@
-= form_for @person, :multipart => true do |f| 
+= form_for @person, :html => {:multipart => true} do |f| 
   = f.error_messages 
   %p
     = f.label :first_name 
@@ -10,11 +10,11 @@
     %br
     = f.text_field :last_name 
 
-  = f.fields_for @person.find_or_build_mugshot do |mug|
+  = f.fields_for :mugshot_attributes do |mug|
     %p
-      = mug.label :asset
+      = mug.label :photo
       %br
-      = mug.file_field :asset
+      = mug.file_field :photo
   
   
   %p= f.submit 

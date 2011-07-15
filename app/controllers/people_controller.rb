@@ -14,6 +14,15 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(params[:person])
+    
+    # @person = Person.new
+    # mugshot = @person.build_mugshot
+    # mugshot.photo = params[:person][:mugshot][:photo]
+    # params[:person].delete(:mugshot)
+    # @person.update_attributes(params[:person])
+    # @person.mugshot = mugshot
+    # @person.update_attributes(params[:person])
+    
     if @person.save
       redirect_to @person, :notice => "Successfully created person."
     else
