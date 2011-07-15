@@ -14,8 +14,8 @@ module Contact
   end
   
   module InstanceMethods
-    def mugshot_url
-      mugshot.url
+    def mugshot_url(size = :thumbnail)
+      mugshot.url(size)
     end
     
     def mugshot?
