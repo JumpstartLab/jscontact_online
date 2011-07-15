@@ -10,5 +10,7 @@
     #container
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
+      = render :partial => 'shared/login'
       = content_tag :h1, yield(:title) if show_title?
       = yield
+    
