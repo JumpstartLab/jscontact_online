@@ -1,14 +1,15 @@
 = form_for @person, :html => {:multipart => true} do |f| 
   = f.error_messages 
+
   %p
     = f.label :first_name 
     %br
-    = f.text_field :first_name 
+    = f.text_area :first_name 
   
   %p
     = f.label :last_name 
     %br
-    = f.text_field :last_name 
+    = f.text_area :last_name 
 
   = f.fields_for :mugshot_attributes do |mug|
     %p

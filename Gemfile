@@ -8,6 +8,7 @@ gem 'haml'
 gem 'sass'
 gem 'paperclip'
 gem 'rmagick'
+gem 'use_tinymce'
 
 group :development, :test do
   gem 'spork', '~> 0.9.0.rc'
