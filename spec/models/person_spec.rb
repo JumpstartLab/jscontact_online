@@ -25,4 +25,9 @@ describe Person do
     person.should respond_to(:mugshot)
   end
   
+  it "should not be valid without a user_id" do
+    person.user_id = nil
+    person.should_not be_valid
+  end
+  
 end

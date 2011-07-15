@@ -6,6 +6,11 @@ describe Company do
   it "should be valid" do
     company.should be_valid
   end
+
+  it "should not be valid without a user_id" do
+    company.user_id = nil
+    company.should_not be_valid
+  end
   
   it "should not be valid without a name" do
     company.name = nil
